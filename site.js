@@ -1,13 +1,6 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Logo: po animacji wejścia przełącz na animację przy najechaniu
-  var mark = document.querySelector('.brand-mark');
-  if (mark) {
-    if (reduce) mark.classList.add('is-ready');
-    else setTimeout(function () { mark.classList.add('is-ready'); }, 1100);
-  }
-
   // Cień pod menu po zjechaniu z góry strony
   var header = document.querySelector('.site-header');
   if (header) {

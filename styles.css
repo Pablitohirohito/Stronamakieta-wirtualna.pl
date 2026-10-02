@@ -79,33 +79,31 @@ p { margin: 0; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
 .brand svg { flex: none; overflow: visible; }
 
-/* Logo: cztery lokale, zielony = dostępny */
-.brand-mark rect { fill: var(--ink); transform-box: fill-box; transform-origin: center; }
-.brand-mark .m4 { fill: var(--available); }
-.brand-mark:not(.is-ready) rect { animation: mark-in .5s cubic-bezier(.3, 1.4, .5, 1) both; }
-.brand-mark:not(.is-ready) .m2 { animation-delay: .08s; }
-.brand-mark:not(.is-ready) .m3 { animation-delay: .16s; }
-.brand-mark:not(.is-ready) .m4 { animation: mark-in .5s cubic-bezier(.3, 1.4, .5, 1) .24s both, mark-lit .45s ease-out .55s both; }
-.brand:hover .brand-mark.is-ready rect,
-.brand:focus-visible .brand-mark.is-ready rect { animation: mark-seek .9s ease-in-out both; }
-.brand:hover .brand-mark.is-ready .m2,
-.brand:focus-visible .brand-mark.is-ready .m2 { animation-delay: .15s; }
-.brand:hover .brand-mark.is-ready .m3,
-.brand:focus-visible .brand-mark.is-ready .m3 { animation-delay: .3s; }
-.brand:hover .brand-mark.is-ready .m4,
-.brand:focus-visible .brand-mark.is-ready .m4 { animation: mark-settle .9s ease-in-out both; }
-
-@keyframes mark-in { from { transform: scale(0); } to { transform: scale(1); } }
-@keyframes mark-lit { from { fill: var(--ink); } to { fill: var(--available); } }
-@keyframes mark-seek {
-  0%, 100% { fill: var(--ink); transform: scale(1); }
-  25% { fill: var(--available); transform: scale(.82); }
-  50% { fill: var(--ink); transform: scale(1); }
+/* Logo: budynek z siatką lokali, zielony = dostępny; obrysy rysują się w pętli i łagodnie wygasają */
+.brand-mark .b-line { fill: none; stroke: var(--ink); stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.brand-mark .b-frame { stroke-width: 1.2; }
+.brand-mark .b-grid { stroke-width: .9; }
+.brand-mark .b-unit { fill: var(--available); transform-box: fill-box; transform-origin: center; }
+.brand-mark .b-line { animation: mark-draw 6s cubic-bezier(.6, 0, .2, 1) infinite both; }
+.brand-mark .g1 { animation-delay: .25s; }
+.brand-mark .g2 { animation-delay: .4s; }
+.brand-mark .g3 { animation-delay: .55s; }
+.brand-mark .b-unit { animation: mark-unit 6s ease-out .55s infinite both; }
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark .b-line, .brand-mark .b-unit { animation: none; }
 }
-@keyframes mark-settle {
-  0%, 55% { fill: var(--ink); transform: scale(1); }
-  75% { fill: var(--available); transform: scale(.82); }
-  100% { fill: var(--available); transform: scale(1); }
+
+@keyframes mark-draw {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  18% { stroke-dashoffset: 0; }
+  78% { opacity: 1; }
+  94%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes mark-unit {
+  0%, 12% { opacity: 0; transform: scale(.6); }
+  22% { opacity: 1; transform: scale(1); }
+  78% { opacity: 1; transform: scale(1); }
+  94%, 100% { opacity: 0; transform: scale(1); }
 }
 .nav { display: flex; gap: 28px; margin-left: auto; }
 .nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
