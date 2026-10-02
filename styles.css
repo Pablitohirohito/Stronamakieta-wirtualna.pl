@@ -18,7 +18,10 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .brand-mark rect { animation: none !important; }
+}
 
 body {
   margin: 0;
@@ -69,10 +72,41 @@ p { margin: 0; }
   background: rgba(255, 255, 255, .92);
   backdrop-filter: saturate(1.4) blur(10px);
   -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  transition: box-shadow .25s ease;
 }
+.site-header.is-scrolled { box-shadow: 0 1px 0 var(--line), 0 10px 30px -14px rgba(29, 33, 32, .28); }
 .site-header .wrap { display: flex; align-items: center; gap: 32px; height: 72px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
-.brand svg { flex: none; }
+.brand svg { flex: none; overflow: visible; }
+
+/* Logo: cztery lokale, zielony = dostępny */
+.brand-mark rect { fill: var(--ink); transform-box: fill-box; transform-origin: center; }
+.brand-mark .m4 { fill: var(--available); }
+.brand-mark:not(.is-ready) rect { animation: mark-in .5s cubic-bezier(.3, 1.4, .5, 1) both; }
+.brand-mark:not(.is-ready) .m2 { animation-delay: .08s; }
+.brand-mark:not(.is-ready) .m3 { animation-delay: .16s; }
+.brand-mark:not(.is-ready) .m4 { animation: mark-in .5s cubic-bezier(.3, 1.4, .5, 1) .24s both, mark-lit .45s ease-out .55s both; }
+.brand:hover .brand-mark.is-ready rect,
+.brand:focus-visible .brand-mark.is-ready rect { animation: mark-seek .9s ease-in-out both; }
+.brand:hover .brand-mark.is-ready .m2,
+.brand:focus-visible .brand-mark.is-ready .m2 { animation-delay: .15s; }
+.brand:hover .brand-mark.is-ready .m3,
+.brand:focus-visible .brand-mark.is-ready .m3 { animation-delay: .3s; }
+.brand:hover .brand-mark.is-ready .m4,
+.brand:focus-visible .brand-mark.is-ready .m4 { animation: mark-settle .9s ease-in-out both; }
+
+@keyframes mark-in { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes mark-lit { from { fill: var(--ink); } to { fill: var(--available); } }
+@keyframes mark-seek {
+  0%, 100% { fill: var(--ink); transform: scale(1); }
+  25% { fill: var(--available); transform: scale(.82); }
+  50% { fill: var(--ink); transform: scale(1); }
+}
+@keyframes mark-settle {
+  0%, 55% { fill: var(--ink); transform: scale(1); }
+  75% { fill: var(--available); transform: scale(.82); }
+  100% { fill: var(--available); transform: scale(1); }
+}
 .nav { display: flex; gap: 28px; margin-left: auto; }
 .nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
 .nav a:hover, .nav a[aria-current="true"] { color: var(--ink); }
@@ -119,11 +153,11 @@ p { margin: 0; }
 /* Photos */
 .photo { margin: 0; overflow: hidden; border-radius: var(--radius-md); background: var(--plaster); }
 .photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo img.is-parallax { transform: translate3d(0, var(--py, 0px), 0) scale(1.3); will-change: transform; }
+.is-layer { transform: translate3d(0, var(--ly, 0px), 0); will-change: transform; }
+.hero h1, .hero .wrap > div { will-change: transform, opacity; }
+.demo { position: relative; z-index: 1; }
 .split-head .photo { margin-top: 40px; aspect-ratio: 4 / 5; max-width: 440px; }
-.photo-pair { display: grid; grid-template-columns: 8fr 4fr; gap: clamp(8px, 1.2vw, 16px); margin-bottom: clamp(80px, 10vw, 140px); }
-.photo-pair .photo { border-radius: var(--radius-lg); }
-.photo-pair .photo:first-child { aspect-ratio: 16 / 10; }
-.photo-pair .photo:last-child { aspect-ratio: auto; }
 .steps-top { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 5vw, 80px); align-items: end; }
 .steps-top .photo { aspect-ratio: 16 / 9; border-radius: var(--radius-lg); }
 
@@ -248,9 +282,7 @@ p { margin: 0; }
   .split, .contact, .footer-top { grid-template-columns: 1fr; }
   .split-head { position: static; }
   .split-head .photo { display: none; }
-  .photo-pair, .steps-top { grid-template-columns: 1fr; }
-  .photo-pair .photo:last-child { display: none; }
-  .features, .compare-cols, .steps { grid-template-columns: 1fr; }
+      .features, .compare-cols, .steps { grid-template-columns: 1fr; }
   .compare-col.is-after { margin: 0; padding: 20px 20px 4px; }
   .steps li::before { font-size: 56px; margin-bottom: 16px; padding-bottom: 16px; }
   .demo-frame iframe { height: 82vh; min-height: 520px; }

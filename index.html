@@ -36,7 +36,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "Czym jest makieta mieszkań z sorterem?", "acceptedAnswer": { "@type": "Answer", "text": "To interaktywny model 3D budynku lub osiedla osadzony na stronie dewelopera, w którym klient filtruje dostępne mieszkania po metrażu, piętrze, liczbie pokoi i cenie, a następnie ogląda wybrany lokal na wizualizacji." } },
-      { "@type": "Question", "name": "Jak długo trwa wdrożenie na mojej stronie?", "acceptedAnswer": { "@type": "Answer", "text": "Zwykle od 5 do 10 dni roboczych, w zależności od liczby budynków i kompletności dokumentacji przekazanej przez dewelopera." } },
+      { "@type": "Question", "name": "Jak długo trwa wdrożenie na mojej stronie?", "acceptedAnswer": { "@type": "Answer", "text": "Zwykle od 10 do 15 dni roboczych, w zależności od liczby budynków i kompletności dokumentacji przekazanej przez dewelopera." } },
       { "@type": "Question", "name": "Czy widget działa na telefonie i tablecie?", "acceptedAnswer": { "@type": "Answer", "text": "Tak, makieta jest w pełni responsywna i działa na urządzeniach mobilnych, desktopach oraz ekranach dotykowych w biurze sprzedaży." } },
       { "@type": "Question", "name": "Czy mogę zmieniać dostępność mieszkań samodzielnie?", "acceptedAnswer": { "@type": "Answer", "text": "Tak, każdy status mieszkania (dostępne, zarezerwowane, sprzedane) aktualizujesz w panelu, a zmiana pojawia się na widgecie automatycznie, bez potrzeby ingerencji w kod strony." } },
       { "@type": "Question", "name": "Czy makieta zastępuje dział sprzedaży?", "acceptedAnswer": { "@type": "Answer", "text": "Nie — makieta wspiera sprzedaż, pozwalając klientom samodzielnie zawęzić wybór przed kontaktem, dzięki czemu rozmowy handlowe są krótsze i bardziej ukierunkowane." } },
@@ -50,17 +50,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
 
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="#" aria-label="Makieta-Wirtualna — strona główna">
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="1" y="1" width="10" height="10" rx="2.5" fill="#1d2120"/>
-          <rect x="13" y="1" width="10" height="10" rx="2.5" fill="#1d2120"/>
-          <rect x="1" y="13" width="10" height="10" rx="2.5" fill="#1d2120"/>
-          <rect x="13" y="13" width="10" height="10" rx="2.5" fill="#2f7a55"/>
+        <svg class="brand-mark" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+          <rect class="m1" x="1" y="1" width="10" height="10" rx="2.5"/>
+          <rect class="m2" x="13" y="1" width="10" height="10" rx="2.5"/>
+          <rect class="m3" x="1" y="13" width="10" height="10" rx="2.5"/>
+          <rect class="m4" x="13" y="13" width="10" height="10" rx="2.5"/>
         </svg>
         Makieta‑Wirtualna
       </a>
@@ -150,14 +151,6 @@
 
     <section aria-labelledby="porownanie">
       <div class="wrap">
-        <div class="photo-pair">
-          <figure class="photo">
-            <img src="img/budynek-balkony-800.webp" srcset="img/budynek-balkony-800.webp 800w, img/budynek-balkony-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 66vw" width="800" height="500" loading="lazy" decoding="async" alt="Nowy budynek mieszkalny z balkonami wśród zieleni">
-          </figure>
-          <figure class="photo">
-            <img src="img/budynek-niebo-600.webp" srcset="img/budynek-niebo-600.webp 600w, img/budynek-niebo-1000.webp 1000w" sizes="33vw" width="600" height="750" loading="lazy" decoding="async" alt="Jasny budynek apartamentowy na tle nieba">
-          </figure>
-        </div>
         <div class="compare">
           <h2 id="porownanie">Sprzedaż mieszkań z makietą i bez niej</h2>
           <p class="lead">Interaktywna makieta 3D i sorter mieszkań zmieniają sposób, w jaki klienci przeglądają ofertę inwestycji mieszkaniowej.</p>
@@ -225,7 +218,7 @@
           </details>
           <details>
             <summary>Jak długo trwa wdrożenie na mojej stronie?</summary>
-            <p>Zwykle od 5 do 10 dni roboczych, w zależności od liczby budynków i kompletności dokumentacji przekazanej przez dewelopera.</p>
+            <p>Zwykle od 10 do 15 dni roboczych, w zależności od liczby budynków i kompletności dokumentacji przekazanej przez dewelopera.</p>
           </details>
           <details>
             <summary>Czy widget działa na telefonie i tablecie?</summary>
