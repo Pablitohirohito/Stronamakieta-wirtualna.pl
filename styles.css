@@ -130,6 +130,7 @@ p { margin: 0; }
   border-radius: var(--radius-lg);
   padding: clamp(8px, 1.2vw, 14px);
 }
+.demo-more { padding-top: clamp(80px, 10vw, 140px); }
 .demo-frame iframe {
   width: 100%; height: clamp(560px, calc(100vh - 120px), 920px); border: 0;
   border-radius: var(--radius-md); background: var(--paper);
