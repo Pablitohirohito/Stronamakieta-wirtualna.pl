@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Makieta-Wirtualna — Interaktives 3D-Wohnungsmodell mit Wohnungsfinder für Bauträger</title>
+  <meta name="description" content="Fertiges Widget für die Website von Bauträgern: ein interaktives 3D-Modell Ihres Projekts mit Wohnungsfinder — Filter nach Fläche, Etage und Preis. In wenigen Minuten eingebunden.">
+  <link rel="canonical" href="https://makieta-wirtualna.pl/de/">
+  <link rel="alternate" hreflang="pl" href="https://makieta-wirtualna.pl/">
+  <link rel="alternate" hreflang="en" href="https://makieta-wirtualna.pl/en/">
+  <link rel="alternate" hreflang="de" href="https://makieta-wirtualna.pl/de/">
+  <link rel="alternate" hreflang="x-default" href="https://makieta-wirtualna.pl/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 24 24'%3E%3Cg stroke='%231d2120' stroke-width='.8' stroke-linejoin='round'%3E%3Cpath fill='%23fff' d='M16 4.8L18.77 6.4L13.23 9.6L10.46 8Z'/%3E%3Cpath fill='%23e2e6e3' d='M10.46 20.8L13.23 22.4L13.23 9.6L10.46 8Z'/%3E%3Cpath fill='%23b9c1bd' d='M18.77 19.2L13.23 22.4L13.23 9.6L18.77 6.4Z'/%3E%3Cpath fill='%23fff' d='M18.77 9.6L21.54 11.2L16 14.4L13.23 12.8Z'/%3E%3Cpath fill='%23e2e6e3' d='M13.23 22.4L16 24L16 14.4L13.23 12.8Z'/%3E%3Cpath fill='%23b9c1bd' d='M21.54 20.8L16 24L16 14.4L21.54 11.2Z'/%3E%3Cpath fill='%232f7a55' stroke='none' d='M13.92 19.28L15.31 20.08L15.31 17.52L13.92 16.72Z'/%3E%3Cpath fill='%23fff' d='M10.46 12.48L13.23 14.08L10.46 15.68L7.69 14.08Z'/%3E%3Cpath fill='%23e2e6e3' d='M7.69 22.4L10.46 24L10.46 15.68L7.69 14.08Z'/%3E%3Cpath fill='%23b9c1bd' d='M13.23 22.4L10.46 24L10.46 15.68L13.23 14.08Z'/%3E%3Cpath fill='%23fff' d='M21.54 14.4L24.31 16L18.77 19.2L16 17.6Z'/%3E%3Cpath fill='%23e2e6e3' d='M16 24L18.77 25.6L18.77 19.2L16 17.6Z'/%3E%3Cpath fill='%23b9c1bd' d='M24.31 22.4L18.77 25.6L18.77 19.2L24.31 16Z'/%3E%3Cpath fill='%23fff' d='M7.69 17.28L10.46 18.88L7.69 20.48L4.92 18.88Z'/%3E%3Cpath fill='%23e2e6e3' d='M4.92 24L7.69 25.6L7.69 20.48L4.92 18.88Z'/%3E%3Cpath fill='%23b9c1bd' d='M10.46 24L7.69 25.6L7.69 20.48L10.46 18.88Z'/%3E%3Cpath fill='%23fff' d='M24.31 19.2L27.08 20.8L21.54 24L18.77 22.4Z'/%3E%3Cpath fill='%23e2e6e3' d='M18.77 25.6L21.54 27.2L21.54 24L18.77 22.4Z'/%3E%3Cpath fill='%23b9c1bd' d='M27.08 24L21.54 27.2L21.54 24L27.08 20.8Z'/%3E%3C/g%3E%3C/svg%3E">
+
+  <meta property="og:title" content="Makieta-Wirtualna — Interaktives 3D-Wohnungsmodell mit Wohnungsfinder">
+  <meta property="og:description" content="Fertiges Widget für die Website von Bauträgern: ein interaktives 3D-Modell Ihres Projekts mit Wohnungsfinder. In wenigen Minuten eingebunden.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makieta-wirtualna.pl/de/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:image" content="https://makieta-wirtualna.pl/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Makieta-Wirtualna — interaktives Wohnungsmodell mit Wohnungsfinder">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://makieta-wirtualna.pl/img/og-image.jpg">
+  <meta name="twitter:title" content="Makieta-Wirtualna — Interaktives 3D-Wohnungsmodell mit Wohnungsfinder">
+  <meta name="twitter:description" content="Fertiges Widget für die Website von Bauträgern: ein interaktives 3D-Modell Ihres Projekts mit Wohnungsfinder.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Makieta-Wirtualna — interaktives Wohnungsmodell mit Wohnungsfinder",
+    "serviceType": "3D-Visualisierung und Wohnungsfinder für Bauträger",
+    "provider": { "@type": "Organization", "name": "Makieta-Wirtualna", "email": "biuro@designova.pl", "url": "https://makieta-wirtualna.pl" },
+    "description": "Ein interaktives 3D-Modell eines Wohnbauprojekts mit Wohnungsfinder, eingebunden als Widget auf der Website eines Bauträgers oder Vertriebsbüros."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Was ist ein Wohnungsmodell mit Wohnungsfinder?", "acceptedAnswer": { "@type": "Answer", "text": "Ein interaktives 3D-Modell eines Gebäudes oder Quartiers, eingebunden auf der Website des Bauträgers. Interessenten filtern verfügbare Wohnungen nach Fläche, Etage, Zimmeranzahl und Preis und sehen die gewählte Einheit direkt im Modell." } },
+      { "@type": "Question", "name": "Was kostet das Modell?", "acceptedAnswer": { "@type": "Answer", "text": "Der Preis hängt von der Anzahl der Gebäude und Wohneinheiten sowie vom Umfang der Anpassung ab. Ein kostenloses Angebot erhalten Sie innerhalb von 24 Stunden nach Eingang der wichtigsten Projektdaten." } },
+      { "@type": "Question", "name": "Wie lange dauert die Umsetzung?", "acceptedAnswer": { "@type": "Answer", "text": "In der Regel 10 bis 15 Arbeitstage, abhängig von der Anzahl der Gebäude und der Vollständigkeit der vom Bauträger gelieferten Unterlagen." } },
+      { "@type": "Question", "name": "Funktioniert das Widget auf Smartphone und Tablet?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Das Modell ist vollständig responsiv und funktioniert auf Mobilgeräten, Desktops und Touchscreens im Vertriebsbüro." } },
+      { "@type": "Question", "name": "Kann ich die Verfügbarkeit selbst ändern?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Den Status jeder Wohnung (frei, reserviert, verkauft) pflegen Sie in einer freigegebenen Excel- oder Google-Tabelle, oder das Modell übernimmt ihn direkt aus Ihrem CRM. Die Änderung erscheint automatisch im Widget — ohne Eingriff in den Code Ihrer Website." } },
+      { "@type": "Question", "name": "Lässt sich das Modell an unser CRM anbinden?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Wenn Ihr Vertriebssystem oder CRM eine Wohnungsliste bereitstellt (per API oder XML/CSV-Export), übernimmt das Modell Status und Preise automatisch. Integrationen kalkulieren wir individuell." } },
+      { "@type": "Question", "name": "Ersetzt das Modell den Vertrieb?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Es unterstützt den Vertrieb, indem Interessenten ihre Auswahl schon vor dem ersten Kontakt eingrenzen. Verkaufsgespräche werden dadurch kürzer und gezielter." } },
+      { "@type": "Question", "name": "Kann ich das Modell auf mehreren Seiten einbinden?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Dasselbe Widget kann auf der Projektstartseite, auf Seiten einzelner Gebäude und in Marketingmaterialien eingesetzt werden — ohne zusätzliche Umsetzungskosten." } }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../site.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#" aria-label="Makieta-Wirtualna — Startseite">
+        <svg class="brand-mark" width="36" height="36" viewBox="4 4 24 24" aria-hidden="true">
+          <g class="b-tier t1">
+            <path class="b-top" d="M16 4.8L18.77 6.4L13.23 9.6L10.46 8Z"/>
+            <path class="b-left" d="M10.46 20.8L13.23 22.4L13.23 9.6L10.46 8Z"/>
+            <path class="b-right" d="M18.77 19.2L13.23 22.4L13.23 9.6L18.77 6.4Z"/>
+          </g>
+          <g class="b-tier t2">
+            <path class="b-top" d="M18.77 9.6L21.54 11.2L16 14.4L13.23 12.8Z"/>
+            <path class="b-left" d="M13.23 22.4L16 24L16 14.4L13.23 12.8Z"/>
+            <path class="b-right" d="M21.54 20.8L16 24L16 14.4L21.54 11.2Z"/>
+            <path class="b-unit" d="M13.92 19.28L15.31 20.08L15.31 17.52L13.92 16.72Z"/>
+          </g>
+          <g class="b-tier t3">
+            <path class="b-top" d="M10.46 12.48L13.23 14.08L10.46 15.68L7.69 14.08Z"/>
+            <path class="b-left" d="M7.69 22.4L10.46 24L10.46 15.68L7.69 14.08Z"/>
+            <path class="b-right" d="M13.23 22.4L10.46 24L10.46 15.68L13.23 14.08Z"/>
+          </g>
+          <g class="b-tier t4">
+            <path class="b-top" d="M21.54 14.4L24.31 16L18.77 19.2L16 17.6Z"/>
+            <path class="b-left" d="M16 24L18.77 25.6L18.77 19.2L16 17.6Z"/>
+            <path class="b-right" d="M24.31 22.4L18.77 25.6L18.77 19.2L24.31 16Z"/>
+          </g>
+          <g class="b-tier t5">
+            <path class="b-top" d="M7.69 17.28L10.46 18.88L7.69 20.48L4.92 18.88Z"/>
+            <path class="b-left" d="M4.92 24L7.69 25.6L7.69 20.48L4.92 18.88Z"/>
+            <path class="b-right" d="M10.46 24L7.69 25.6L7.69 20.48L10.46 18.88Z"/>
+          </g>
+          <g class="b-tier t6">
+            <path class="b-top" d="M24.31 19.2L27.08 20.8L21.54 24L18.77 22.4Z"/>
+            <path class="b-left" d="M18.77 25.6L21.54 27.2L21.54 24L18.77 22.4Z"/>
+            <path class="b-right" d="M27.08 24L21.54 27.2L21.54 24L27.08 20.8Z"/>
+          </g>
+        </svg>
+        Makieta‑Wirtualna
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#funkcje">Funktionen</a>
+        <a href="#jak-to-dziala">So funktioniert's</a>
+        <a href="#cennik">Pakete</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <div class="langs">
+        <a class="lang" href="/" hreflang="pl" lang="pl" aria-label="Wersja polska">PL</a>
+        <a class="lang" href="/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      </div>
+      <a class="btn btn-ink btn-sm" href="#kontakt" data-intent="prezentacja">Demo vereinbaren</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiles Menü" hidden>
+      <a href="#funkcje">Funktionen</a>
+      <a href="#jak-to-dziala">So funktioniert's</a>
+      <a href="#cennik">Pakete</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="/" hreflang="pl" lang="pl">Wersja polska</a>
+      <a href="/en/" hreflang="en" lang="en">English version</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Interaktives Wohnungsmodell mit smartem Wohnungsfinder</h1>
+        <div>
+        <p class="lead">Interessenten filtern Wohnungen nach Fläche, Etage und Preis direkt auf Ihrer Website. Ein fertiges 3D-Widget, in wenigen Minuten eingebunden — ohne Umbau Ihrer bestehenden Seite.</p>
+        <div class="hero-actions">
+          <a class="btn btn-ink" href="#kontakt" data-intent="prezentacja">Demo vereinbaren</a>
+          <a class="btn btn-line" href="#demo">Live ausprobieren</a>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="demo" aria-label="Live-Demo des Modells mit Wohnungsfinder">
+      <div class="wrap">
+        <div class="demo-frame">
+          <div class="demo-stage">
+            <iframe src="https://resortszklarki.netlify.app/" title="Modell Resort Szklarki mit Wohnungsfinder — Demo" allow="fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <ul class="demo-notes">
+          <li>Nach Fläche und Preis filtern</li>
+          <li>3D-Gebäude drehen</li>
+          <li>Wohnung anklicken für Details</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="funkcje">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2>Ein Vertriebswerkzeug, nicht nur eine Visualisierung</h2>
+          <p class="lead">Makieta-Wirtualna ist ein interaktives 3D-Modell Ihres Projekts mit integriertem Wohnungsfinder, mit dem Interessenten selbstständig die passende Wohnung finden.</p>
+          <figure class="photo">
+            <img src="../img/makieta-osiedla-640.webp" srcset="../img/makieta-osiedla-640.webp 640w, ../img/makieta-osiedla-1200.webp 1200w" sizes="440px" width="640" height="800" loading="lazy" decoding="async" alt="Architekturmodell einer Wohnanlage mit Modellbäumen">
+          </figure>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <h3>Wohnungsfinder</h3>
+            <p>Filter nach Fläche, Etage, Zimmeranzahl, Preis und Verfügbarkeit.</p>
+          </div>
+          <div class="feature">
+            <h3>3D-Visualisierung</h3>
+            <p>Ein interaktives Gebäudemodell — Interessenten drehen, zoomen und wählen die Wohnung visuell aus.</p>
+          </div>
+          <div class="feature">
+            <h3>Einfache Integration</h3>
+            <p>Eine Zeile Embed-Code — funktioniert auf jeder Website, ohne Plugins oder Umbau.</p>
+          </div>
+          <div class="feature">
+            <h3>Ihr Branding</h3>
+            <p>Farben, Logo und Typografie passend zum Auftritt Ihres Projekts.</p>
+          </div>
+          <div class="feature">
+            <h3>Live-Aktualisierung</h3>
+            <p>Sie pflegen die Status in einer Excel- oder Google-Tabelle, oder wir übernehmen sie aus Ihrem CRM — das Widget aktualisiert sich automatisch.</p>
+          </div>
+          <div class="feature">
+            <h3>Daten und Analysen</h3>
+            <p>Sie sehen, welche Wohnungen am häufigsten und am längsten angesehen werden.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="porownanie">
+      <div class="wrap">
+        <div class="compare">
+          <h2 id="porownanie">Wohnungsverkauf mit und ohne 3D-Modell</h2>
+          <p class="lead">Ein interaktives 3D-Modell mit Wohnungsfinder verändert, wie Interessenten das Angebot eines Wohnbauprojekts erkunden.</p>
+          <div class="compare-cols">
+            <div class="compare-col is-before">
+              <h3>Ohne Modell</h3>
+              <ul>
+                <li>Interessenten sehen statische PDF-Grundrisse und müssen sich die Wohnung vorstellen</li>
+                <li>Jede Frage zur Verfügbarkeit erfordert einen Anruf im Vertriebsbüro</li>
+                <li>Jede Angebotsänderung bedeutet, Dateien auf der Website auszutauschen</li>
+                <li>Mehrere Wohnungen gleichzeitig zu vergleichen ist mühsam</li>
+              </ul>
+            </div>
+            <div class="compare-col is-after">
+              <h3>Mit Makieta‑Wirtualna</h3>
+              <ul>
+                <li>Interessenten erkunden das 3D-Modell und bewegen sich selbst durch das Gebäude</li>
+                <li>Der Finder zeigt die Verfügbarkeit in Echtzeit</li>
+                <li>Sie ändern Status in Excel oder im CRM — das Widget aktualisiert sich selbst</li>
+                <li>Wohnungen mit einem Klick filtern und vergleichen</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo demo-more" id="demo-2" aria-label="Demo eines Gebäudemodells">
+      <div class="wrap">
+        <div class="demo-frame">
+          <div class="demo-stage">
+            <iframe src="https://makieta-wirtualna.netlify.app/" title="Modell eines Wohngebäudes mit Wohnungsfinder — Demo" allow="fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jak-to-dziala">
+      <div class="wrap">
+        <div class="steps-top">
+          <div class="steps-head">
+            <h2>So funktioniert's</h2>
+            <p class="lead">Die Umsetzung dauert in der Regel 10 bis 15 Arbeitstage — von der Übermittlung der Unterlagen bis zur Veröffentlichung des fertigen Widgets.</p>
+          </div>
+          <figure class="photo">
+            <img src="../img/makieta-zielen-800.webp" srcset="../img/makieta-zielen-800.webp 800w, ../img/makieta-zielen-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="800" height="450" loading="lazy" decoding="async" alt="Weißes Architekturmodell eines Gebäudes, umgeben von Modellbäumen">
+          </figure>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Sie senden die Pläne</h3>
+            <p>Grundrisse, Wohnungsdaten und Visualisierungen Ihres Projekts.</p>
+          </li>
+          <li>
+            <h3>Wir bauen das Modell</h3>
+            <p>Wir erstellen ein interaktives 3D-Modell mit Wohnungsfinder in Ihrem Design.</p>
+          </li>
+          <li>
+            <h3>Sie fügen den Code ein</h3>
+            <p>Sie erhalten einen Link oder Embed-Code, bereit für Ihre Website.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="cennik" aria-labelledby="cennik-tytul" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="steps-head">
+          <h2 id="cennik-tytul">Pakete für jede Projektgröße</h2>
+          <p class="lead">Der Preis hängt von der Anzahl der Gebäude und Wohneinheiten ab. Wählen Sie ein Paket — Ihr kostenloses Angebot erhalten Sie innerhalb von 24 Stunden.</p>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Start</h3>
+            <p class="plan-for">Ein einzelnes Wohngebäude</p>
+            <p class="plan-price">Angebot in 24 h</p>
+            <ul>
+              <li>3D-Modell eines Gebäudes</li>
+              <li>Wohnungsfinder und Wohnungskarten</li>
+              <li>Status aus Excel- oder Google-Tabelle</li>
+              <li>Ihre Farben und Ihr Logo</li>
+              <li>Embed-Code für Ihre Website</li>
+            </ul>
+            <a class="btn btn-line" href="#kontakt" data-plan="Start">Paket Start anfragen</a>
+          </article>
+          <article class="plan is-featured">
+            <p class="plan-tag">Am häufigsten gewählt</p>
+            <h3>Projekt</h3>
+            <p class="plan-for">Mehrere Gebäude mit Umgebung</p>
+            <p class="plan-price">Angebot in 24 h</p>
+            <ul>
+              <li>Alles aus Start</li>
+              <li>Mehrere Gebäude in einem Modell</li>
+              <li>Grundstück und Umgebung in 3D</li>
+              <li>Analyse der angesehenen Wohnungen</li>
+              <li>Einbindung auf mehreren Seiten</li>
+            </ul>
+            <a class="btn btn-paper" href="#kontakt" data-plan="Inwestycja">Paket Projekt anfragen</a>
+          </article>
+          <article class="plan">
+            <h3>Quartier</h3>
+            <p class="plan-for">Mehrphasige Wohnquartiere</p>
+            <p class="plan-price">Individuelles Angebot</p>
+            <ul>
+              <li>Alles aus Projekt</li>
+              <li>Anbindung an CRM / Vertriebssystem</li>
+              <li>Weitere Bauabschnitte im selben Modell</li>
+              <li>Touchscreen-Version für das Vertriebsbüro</li>
+              <li>Persönlicher Projektbetreuer</li>
+            </ul>
+            <a class="btn btn-line" href="#kontakt" data-plan="Osiedle">Paket Quartier anfragen</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" style="padding-top: 0;">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2>Häufige Fragen</h2>
+        </div>
+        <div>
+          <details>
+            <summary>Was ist ein Wohnungsmodell mit Wohnungsfinder?</summary>
+            <p>Ein interaktives 3D-Modell eines Gebäudes oder Quartiers, eingebunden auf der Website des Bauträgers. Interessenten filtern verfügbare Wohnungen nach Fläche, Etage, Zimmeranzahl und Preis und sehen die gewählte Einheit direkt im Modell.</p>
+          </details>
+          <details>
+            <summary>Was kostet das Modell?</summary>
+            <p>Der Preis hängt von der Anzahl der Gebäude und Wohneinheiten sowie vom Umfang der Anpassung ab. Ein kostenloses Angebot erhalten Sie innerhalb von 24 Stunden nach Eingang der wichtigsten Projektdaten — füllen Sie einfach das <a href="#kontakt">Formular</a> aus.</p>
+          </details>
+          <details>
+            <summary>Wie lange dauert die Umsetzung?</summary>
+            <p>In der Regel 10 bis 15 Arbeitstage, abhängig von der Anzahl der Gebäude und der Vollständigkeit der vom Bauträger gelieferten Unterlagen.</p>
+          </details>
+          <details>
+            <summary>Funktioniert das Widget auf Smartphone und Tablet?</summary>
+            <p>Ja. Das Modell ist vollständig responsiv und funktioniert auf Mobilgeräten, Desktops und Touchscreens im Vertriebsbüro.</p>
+          </details>
+          <details>
+            <summary>Kann ich die Verfügbarkeit selbst ändern?</summary>
+            <p>Ja. Den Status jeder Wohnung (frei, reserviert, verkauft) pflegen Sie in einer freigegebenen Excel- oder Google-Tabelle, oder das Modell übernimmt ihn direkt aus Ihrem CRM. Die Änderung erscheint automatisch im Widget — ohne Eingriff in den Code Ihrer Website.</p>
+          </details>
+          <details>
+            <summary>Lässt sich das Modell an unser CRM anbinden?</summary>
+            <p>Ja. Wenn Ihr Vertriebssystem oder CRM eine Wohnungsliste bereitstellt (per API oder XML/CSV-Export), übernimmt das Modell Status und Preise automatisch. Integrationen kalkulieren wir individuell.</p>
+          </details>
+          <details>
+            <summary>Ersetzt das Modell den Vertrieb?</summary>
+            <p>Nein. Es unterstützt den Vertrieb, indem Interessenten ihre Auswahl schon vor dem ersten Kontakt eingrenzen. Verkaufsgespräche werden dadurch kürzer und gezielter.</p>
+          </details>
+          <details>
+            <summary>Kann ich das Modell auf mehreren Seiten einbinden?</summary>
+            <p>Ja. Dasselbe Widget kann auf der Projektstartseite, auf Seiten einzelner Gebäude und in Marketingmaterialien eingesetzt werden — ohne zusätzliche Umsetzungskosten.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-tytul">
+      <div class="wrap">
+        <div class="contact">
+          <div class="contact-intro">
+            <h2 id="kontakt-tytul">Wir bringen das Modell auf Ihre Website</h2>
+            <p class="lead">Beschreiben Sie Ihr Projekt, und wir senden Ihnen Angebot und Zeitplan. Oder vereinbaren Sie direkt eine 15-minütige Online-Demo.</p>
+            <ul class="contact-facts">
+              <li>Antwort innerhalb von 24 Stunden</li>
+              <li>Kostenloses, unverbindliches Angebot</li>
+              <li>Lieber per E-Mail? <a class="contact-link" href="mailto:biuro@designova.pl?subject=Anfrage%20Makieta-Wirtualna">biuro@designova.pl</a></li>
+            </ul>
+          </div>
+          <form class="form" id="formularz" action="/wyslij.php" method="post" novalidate>
+            <input type="hidden" name="jezyk" value="de">
+            <fieldset class="form-type full">
+              <legend class="visually-hidden">Was benötigen Sie?</legend>
+              <label><input type="radio" name="typ" value="wycena" checked> Angebot</label>
+              <label><input type="radio" name="typ" value="prezentacja"> Online-Demo (15 Min.)</label>
+            </fieldset>
+            <label class="field">Vor- und Nachname *
+              <input type="text" name="imie" autocomplete="name" required maxlength="120">
+            </label>
+            <label class="field">E-Mail *
+              <input type="email" name="email" autocomplete="email" required maxlength="160">
+            </label>
+            <label class="field">Telefon
+              <input type="tel" name="telefon" autocomplete="tel" maxlength="40">
+            </label>
+            <label class="field">Firma / Projekt
+              <input type="text" name="firma" autocomplete="organization" maxlength="160">
+            </label>
+            <div class="form-demo full" data-when="prezentacja" hidden>
+              <label class="field">Wunschtag *
+                <input type="date" name="termin_dzien" data-weekday>
+              </label>
+              <label class="field">Uhrzeit (MEZ) *
+                <select name="termin_godzina">
+                  <option value="">Bitte wählen</option>
+                  <option>9:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+                  <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option>
+                </select>
+              </label>
+              <p class="form-hint">Mo–Fr. Wir bestätigen den Termin und senden Ihnen einen Link zum Meeting.</p>
+            </div>
+            <label class="field">Paket
+              <select name="pakiet">
+                <option value="">Noch unklar</option>
+                <option value="Start">Start</option>
+                <option value="Inwestycja">Projekt</option>
+                <option value="Osiedle">Quartier</option>
+              </select>
+            </label>
+            <label class="field">Geplanter Start
+              <select name="start">
+                <option value="">Bitte wählen</option>
+                <option value="Jak najszybciej">So bald wie möglich</option>
+                <option value="W ciągu miesiąca">Innerhalb eines Monats</option>
+                <option value="Za 1–3 miesiące">In 1–3 Monaten</option>
+                <option value="Później">Später</option>
+              </select>
+            </label>
+            <label class="field">Anzahl Gebäude
+              <input type="number" name="budynki" min="1" max="200" inputmode="numeric">
+            </label>
+            <label class="field">Anzahl Wohneinheiten
+              <input type="number" name="lokale" min="1" max="10000" inputmode="numeric">
+            </label>
+            <label class="field full">Link zum Projekt
+              <input type="url" name="link" placeholder="https://" maxlength="300">
+            </label>
+            <label class="field full">Nachricht
+              <textarea name="wiadomosc" rows="3" maxlength="3000"></textarea>
+            </label>
+            <label class="hp" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <label class="consent full">
+              <input type="checkbox" name="zgoda" value="tak" required>
+              <span>Ich bin damit einverstanden, zu meiner Anfrage kontaktiert zu werden. Die Datenverarbeitung ist in der <a href="../polityka-prywatnosci.html" hreflang="pl">Datenschutzerklärung (auf Polnisch)</a> beschrieben. *</span>
+            </label>
+            <div class="form-submit full">
+              <button class="btn btn-paper" type="submit" data-label-wycena="Anfrage senden" data-label-prezentacja="Demo vereinbaren">Anfrage senden</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <p><strong style="color: var(--ink); font-weight: 600;">Designova Paweł Janowiak</strong></p>
+          <p>Steuernummer (NIP) 7772950478<br>ul. Czereśniowa 15/2, 62-051 Wiry, Polen</p>
+        </div>
+        <p class="footer-about">Makieta-Wirtualna liefert Bauträgern und Vertriebsbüros fertige interaktive Wohnungsmodelle mit Wohnungsfinder, 3D-Visualisierungen von Projekten und Wohnungskonfiguratoren, die direkt auf der Website des Kunden eingebunden werden.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Makieta‑Wirtualna</span>
+        <div class="footer-links">
+          <a href="../polityka-prywatnosci.html" hreflang="pl">Datenschutz (PL)</a>
+          <a href="../regulamin.html" hreflang="pl">AGB (PL)</a>
+          <a href="/" hreflang="pl" lang="pl">Polski</a>
+          <a href="/en/" hreflang="en" lang="en">English</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookie" role="region" aria-label="Cookie-Einwilligung" hidden>
+    <p>Diese Website verwendet notwendige Cookies sowie — mit Ihrer Einwilligung — Analyse-Cookies. Mehr in der <a href="../polityka-prywatnosci.html" hreflang="pl">Datenschutzerklärung (auf Polnisch)</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-line btn-sm" type="button" data-consent="rejected">Nur notwendige</button>
+      <button class="btn btn-ink btn-sm" type="button" data-consent="accepted">Akzeptieren</button>
+    </div>
+  </div>
+</body>
+</html>

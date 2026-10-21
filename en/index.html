@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Makieta-Wirtualna — Interactive 3D apartment model with a unit finder for developers</title>
+  <meta name="description" content="A ready-made widget for property developer websites: an interactive 3D model of your development with an apartment finder — filter by size, floor and price. Embedded in minutes.">
+  <link rel="canonical" href="https://makieta-wirtualna.pl/en/">
+  <link rel="alternate" hreflang="pl" href="https://makieta-wirtualna.pl/">
+  <link rel="alternate" hreflang="en" href="https://makieta-wirtualna.pl/en/">
+  <link rel="alternate" hreflang="de" href="https://makieta-wirtualna.pl/de/">
+  <link rel="alternate" hreflang="x-default" href="https://makieta-wirtualna.pl/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 24 24'%3E%3Cg stroke='%231d2120' stroke-width='.8' stroke-linejoin='round'%3E%3Cpath fill='%23fff' d='M16 4.8L18.77 6.4L13.23 9.6L10.46 8Z'/%3E%3Cpath fill='%23e2e6e3' d='M10.46 20.8L13.23 22.4L13.23 9.6L10.46 8Z'/%3E%3Cpath fill='%23b9c1bd' d='M18.77 19.2L13.23 22.4L13.23 9.6L18.77 6.4Z'/%3E%3Cpath fill='%23fff' d='M18.77 9.6L21.54 11.2L16 14.4L13.23 12.8Z'/%3E%3Cpath fill='%23e2e6e3' d='M13.23 22.4L16 24L16 14.4L13.23 12.8Z'/%3E%3Cpath fill='%23b9c1bd' d='M21.54 20.8L16 24L16 14.4L21.54 11.2Z'/%3E%3Cpath fill='%232f7a55' stroke='none' d='M13.92 19.28L15.31 20.08L15.31 17.52L13.92 16.72Z'/%3E%3Cpath fill='%23fff' d='M10.46 12.48L13.23 14.08L10.46 15.68L7.69 14.08Z'/%3E%3Cpath fill='%23e2e6e3' d='M7.69 22.4L10.46 24L10.46 15.68L7.69 14.08Z'/%3E%3Cpath fill='%23b9c1bd' d='M13.23 22.4L10.46 24L10.46 15.68L13.23 14.08Z'/%3E%3Cpath fill='%23fff' d='M21.54 14.4L24.31 16L18.77 19.2L16 17.6Z'/%3E%3Cpath fill='%23e2e6e3' d='M16 24L18.77 25.6L18.77 19.2L16 17.6Z'/%3E%3Cpath fill='%23b9c1bd' d='M24.31 22.4L18.77 25.6L18.77 19.2L24.31 16Z'/%3E%3Cpath fill='%23fff' d='M7.69 17.28L10.46 18.88L7.69 20.48L4.92 18.88Z'/%3E%3Cpath fill='%23e2e6e3' d='M4.92 24L7.69 25.6L7.69 20.48L4.92 18.88Z'/%3E%3Cpath fill='%23b9c1bd' d='M10.46 24L7.69 25.6L7.69 20.48L10.46 18.88Z'/%3E%3Cpath fill='%23fff' d='M24.31 19.2L27.08 20.8L21.54 24L18.77 22.4Z'/%3E%3Cpath fill='%23e2e6e3' d='M18.77 25.6L21.54 27.2L21.54 24L18.77 22.4Z'/%3E%3Cpath fill='%23b9c1bd' d='M27.08 24L21.54 27.2L21.54 24L27.08 20.8Z'/%3E%3C/g%3E%3C/svg%3E">
+
+  <meta property="og:title" content="Makieta-Wirtualna — Interactive 3D apartment model with a unit finder">
+  <meta property="og:description" content="A ready-made widget for property developer websites: an interactive 3D model of your development with an apartment finder. Embedded in minutes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://makieta-wirtualna.pl/en/">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:image" content="https://makieta-wirtualna.pl/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Makieta-Wirtualna — interactive apartment model with a unit finder">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://makieta-wirtualna.pl/img/og-image.jpg">
+  <meta name="twitter:title" content="Makieta-Wirtualna — Interactive 3D apartment model with a unit finder">
+  <meta name="twitter:description" content="A ready-made widget for property developer websites: an interactive 3D model of your development with an apartment finder.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Makieta-Wirtualna — interactive apartment model with a unit finder",
+    "serviceType": "3D visualisation and apartment finder for property developers",
+    "provider": { "@type": "Organization", "name": "Makieta-Wirtualna", "email": "biuro@designova.pl", "url": "https://makieta-wirtualna.pl" },
+    "description": "An interactive 3D model of a residential development with an apartment finder, embedded as a widget on a developer's or sales office's website."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is an apartment model with a unit finder?", "acceptedAnswer": { "@type": "Answer", "text": "It is an interactive 3D model of a building or an estate embedded on the developer's website. Buyers filter available apartments by size, floor, number of rooms and price, then view the selected unit on the model." } },
+      { "@type": "Question", "name": "How much does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "The price depends on the number of buildings and units and the level of customisation. We prepare a free quote within 24 hours of receiving basic details about your development." } },
+      { "@type": "Question", "name": "How long does implementation take?", "acceptedAnswer": { "@type": "Answer", "text": "Usually 10 to 15 working days, depending on the number of buildings and how complete the documentation provided by the developer is." } },
+      { "@type": "Question", "name": "Does the widget work on phones and tablets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The model is fully responsive and works on mobile devices, desktops and touch screens in the sales office." } },
+      { "@type": "Question", "name": "Can I update apartment availability myself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You update unit statuses (available, reserved, sold) in a shared Excel or Google spreadsheet, or the model pulls them directly from your CRM. The change appears on the widget automatically, with no changes to your website's code." } },
+      { "@type": "Question", "name": "Can the model connect to our CRM?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If your sales system or CRM provides a list of units (via an API or an XML/CSV export), the model pulls statuses and prices from it automatically. Integrations are quoted individually." } },
+      { "@type": "Question", "name": "Does the model replace the sales team?", "acceptedAnswer": { "@type": "Answer", "text": "No. It supports sales by letting buyers narrow down their choice before getting in touch, so sales conversations are shorter and more focused." } },
+      { "@type": "Question", "name": "Can I embed the model on several pages?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The same widget can be placed on the development's home page, individual building pages and in marketing materials at no extra implementation cost." } }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../site.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#" aria-label="Makieta-Wirtualna — home">
+        <svg class="brand-mark" width="36" height="36" viewBox="4 4 24 24" aria-hidden="true">
+          <g class="b-tier t1">
+            <path class="b-top" d="M16 4.8L18.77 6.4L13.23 9.6L10.46 8Z"/>
+            <path class="b-left" d="M10.46 20.8L13.23 22.4L13.23 9.6L10.46 8Z"/>
+            <path class="b-right" d="M18.77 19.2L13.23 22.4L13.23 9.6L18.77 6.4Z"/>
+          </g>
+          <g class="b-tier t2">
+            <path class="b-top" d="M18.77 9.6L21.54 11.2L16 14.4L13.23 12.8Z"/>
+            <path class="b-left" d="M13.23 22.4L16 24L16 14.4L13.23 12.8Z"/>
+            <path class="b-right" d="M21.54 20.8L16 24L16 14.4L21.54 11.2Z"/>
+            <path class="b-unit" d="M13.92 19.28L15.31 20.08L15.31 17.52L13.92 16.72Z"/>
+          </g>
+          <g class="b-tier t3">
+            <path class="b-top" d="M10.46 12.48L13.23 14.08L10.46 15.68L7.69 14.08Z"/>
+            <path class="b-left" d="M7.69 22.4L10.46 24L10.46 15.68L7.69 14.08Z"/>
+            <path class="b-right" d="M13.23 22.4L10.46 24L10.46 15.68L13.23 14.08Z"/>
+          </g>
+          <g class="b-tier t4">
+            <path class="b-top" d="M21.54 14.4L24.31 16L18.77 19.2L16 17.6Z"/>
+            <path class="b-left" d="M16 24L18.77 25.6L18.77 19.2L16 17.6Z"/>
+            <path class="b-right" d="M24.31 22.4L18.77 25.6L18.77 19.2L24.31 16Z"/>
+          </g>
+          <g class="b-tier t5">
+            <path class="b-top" d="M7.69 17.28L10.46 18.88L7.69 20.48L4.92 18.88Z"/>
+            <path class="b-left" d="M4.92 24L7.69 25.6L7.69 20.48L4.92 18.88Z"/>
+            <path class="b-right" d="M10.46 24L7.69 25.6L7.69 20.48L10.46 18.88Z"/>
+          </g>
+          <g class="b-tier t6">
+            <path class="b-top" d="M24.31 19.2L27.08 20.8L21.54 24L18.77 22.4Z"/>
+            <path class="b-left" d="M18.77 25.6L21.54 27.2L21.54 24L18.77 22.4Z"/>
+            <path class="b-right" d="M27.08 24L21.54 27.2L21.54 24L27.08 20.8Z"/>
+          </g>
+        </svg>
+        Makieta‑Wirtualna
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#funkcje">Features</a>
+        <a href="#jak-to-dziala">How it works</a>
+        <a href="#cennik">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Contact</a>
+      </nav>
+      <div class="langs">
+        <a class="lang" href="/" hreflang="pl" lang="pl" aria-label="Wersja polska">PL</a>
+        <a class="lang" href="/de/" hreflang="de" lang="de" aria-label="Deutsche Version">DE</a>
+      </div>
+      <a class="btn btn-ink btn-sm" href="#kontakt" data-intent="prezentacja">Book a demo</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile menu" hidden>
+      <a href="#funkcje">Features</a>
+      <a href="#jak-to-dziala">How it works</a>
+      <a href="#cennik">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Contact</a>
+      <a href="/" hreflang="pl" lang="pl">Wersja polska</a>
+      <a href="/de/" hreflang="de" lang="de">Deutsche Version</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Interactive apartment model with a&nbsp;smart unit finder</h1>
+        <div>
+        <p class="lead">Buyers filter apartments by size, floor and price right on your website. A ready-made 3D model widget you can embed in minutes, without rebuilding your existing site.</p>
+        <div class="hero-actions">
+          <a class="btn btn-ink" href="#kontakt" data-intent="prezentacja">Book a demo</a>
+          <a class="btn btn-line" href="#demo">Try it live</a>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="demo" aria-label="Live demo of the model with a unit finder">
+      <div class="wrap">
+        <div class="demo-frame">
+          <div class="demo-stage">
+            <iframe src="https://resortszklarki.netlify.app/" title="Szklarki Resort model with a unit finder — demo" allow="fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <ul class="demo-notes">
+          <li>Filter by size and price</li>
+          <li>Rotate the 3D building</li>
+          <li>Click an apartment to see details</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="funkcje">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2>A sales tool, not just a visualisation</h2>
+          <p class="lead">Makieta-Wirtualna is an interactive 3D model of your development with a built-in apartment finder that lets buyers find the right unit on their own.</p>
+          <figure class="photo">
+            <img src="../img/makieta-osiedla-640.webp" srcset="../img/makieta-osiedla-640.webp 640w, ../img/makieta-osiedla-1200.webp 1200w" sizes="440px" width="640" height="800" loading="lazy" decoding="async" alt="Architectural model of a housing estate with model trees">
+          </figure>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <h3>Apartment finder</h3>
+            <p>Filter by size, floor, number of rooms, price and availability.</p>
+          </div>
+          <div class="feature">
+            <h3>3D visualisation</h3>
+            <p>An interactive building model — buyers rotate, zoom and pick an apartment visually.</p>
+          </div>
+          <div class="feature">
+            <h3>Easy integration</h3>
+            <p>One line of embed code — works on any website, with no plugins or rebuild.</p>
+          </div>
+          <div class="feature">
+            <h3>Your branding</h3>
+            <p>Colours, logo and typography matched to your development's identity.</p>
+          </div>
+          <div class="feature">
+            <h3>Live updates</h3>
+            <p>Update unit statuses in an Excel or Google spreadsheet, or we pull them from your CRM — the widget updates automatically.</p>
+          </div>
+          <div class="feature">
+            <h3>Data and analytics</h3>
+            <p>See which apartments buyers view most often and for how long.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="porownanie">
+      <div class="wrap">
+        <div class="compare">
+          <h2 id="porownanie">Selling apartments with and without a 3D model</h2>
+          <p class="lead">An interactive 3D model and apartment finder change the way buyers browse a residential development.</p>
+          <div class="compare-cols">
+            <div class="compare-col is-before">
+              <h3>Without a model</h3>
+              <ul>
+                <li>Buyers look at static PDF floor plans and have to imagine the apartment</li>
+                <li>Every availability question means a phone call to the sales office</li>
+                <li>Updating the offer means replacing files on the website</li>
+                <li>Comparing several apartments at once is difficult</li>
+              </ul>
+            </div>
+            <div class="compare-col is-after">
+              <h3>With Makieta‑Wirtualna</h3>
+              <ul>
+                <li>Buyers explore the 3D model and move around the building on their own</li>
+                <li>The finder shows availability in real time</li>
+                <li>You update statuses in Excel or your CRM — the widget updates itself</li>
+                <li>Filter and compare apartments in one click</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo demo-more" id="demo-2" aria-label="Apartment building model demo">
+      <div class="wrap">
+        <div class="demo-frame">
+          <div class="demo-stage">
+            <iframe src="https://makieta-wirtualna.netlify.app/" title="Apartment building model with a unit finder — demo" allow="fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jak-to-dziala">
+      <div class="wrap">
+        <div class="steps-top">
+          <div class="steps-head">
+            <h2>How it works</h2>
+            <p class="lead">Implementation usually takes 10 to 15 working days — from receiving your documentation to publishing the finished widget.</p>
+          </div>
+          <figure class="photo">
+            <img src="../img/makieta-zielen-800.webp" srcset="../img/makieta-zielen-800.webp 800w, ../img/makieta-zielen-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 58vw" width="800" height="450" loading="lazy" decoding="async" alt="White architectural model of a building surrounded by model trees">
+          </figure>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>You send the plans</h3>
+            <p>Floor plans, apartment data and visual materials for the development.</p>
+          </li>
+          <li>
+            <h3>We build the model</h3>
+            <p>We create an interactive 3D model with a unit finder, matched to your brand.</p>
+          </li>
+          <li>
+            <h3>You paste the embed</h3>
+            <p>You get a link or embed code, ready to paste into your website.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="cennik" aria-labelledby="cennik-tytul" style="padding-top: 0;">
+      <div class="wrap">
+        <div class="steps-head">
+          <h2 id="cennik-tytul">Packages for every size of development</h2>
+          <p class="lead">The price depends on the number of buildings and units. Choose a package and we will send a free quote within 24 hours.</p>
+        </div>
+        <div class="plans">
+          <article class="plan">
+            <h3>Start</h3>
+            <p class="plan-for">A single apartment building</p>
+            <p class="plan-price">Quote within 24 h</p>
+            <ul>
+              <li>3D model of one building</li>
+              <li>Apartment finder and unit cards</li>
+              <li>Statuses from an Excel or Google spreadsheet</li>
+              <li>Your colours and logo</li>
+              <li>Embed code for your website</li>
+            </ul>
+            <a class="btn btn-line" href="#kontakt" data-plan="Start">Ask about Start</a>
+          </article>
+          <article class="plan is-featured">
+            <p class="plan-tag">Most popular</p>
+            <h3>Development</h3>
+            <p class="plan-for">Several buildings with surroundings</p>
+            <p class="plan-price">Quote within 24 h</p>
+            <ul>
+              <li>Everything in Start</li>
+              <li>Several buildings in one model</li>
+              <li>Site and surroundings in 3D</li>
+              <li>Analytics of viewed units</li>
+              <li>Embedding on multiple pages</li>
+            </ul>
+            <a class="btn btn-paper" href="#kontakt" data-plan="Inwestycja">Ask about Development</a>
+          </article>
+          <article class="plan">
+            <h3>Estate</h3>
+            <p class="plan-for">Multi-phase housing estates</p>
+            <p class="plan-price">Custom quote</p>
+            <ul>
+              <li>Everything in Development</li>
+              <li>CRM / sales system integration</li>
+              <li>New phases added to the model</li>
+              <li>Touch-screen version for the sales office</li>
+              <li>Dedicated implementation manager</li>
+            </ul>
+            <a class="btn btn-line" href="#kontakt" data-plan="Osiedle">Ask about Estate</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" style="padding-top: 0;">
+      <div class="wrap split">
+        <div class="split-head">
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div>
+          <details>
+            <summary>What is an apartment model with a unit finder?</summary>
+            <p>It is an interactive 3D model of a building or an estate embedded on the developer's website. Buyers filter available apartments by size, floor, number of rooms and price, then view the selected unit on the model.</p>
+          </details>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>The price depends on the number of buildings and units and the level of customisation. We prepare a free quote within 24 hours of receiving basic details about your development — just fill in the <a href="#kontakt">form</a>.</p>
+          </details>
+          <details>
+            <summary>How long does implementation take?</summary>
+            <p>Usually 10 to 15 working days, depending on the number of buildings and how complete the documentation provided by the developer is.</p>
+          </details>
+          <details>
+            <summary>Does the widget work on phones and tablets?</summary>
+            <p>Yes. The model is fully responsive and works on mobile devices, desktops and touch screens in the sales office.</p>
+          </details>
+          <details>
+            <summary>Can I update apartment availability myself?</summary>
+            <p>Yes. You update unit statuses (available, reserved, sold) in a shared Excel or Google spreadsheet, or the model pulls them directly from your CRM. The change appears on the widget automatically, with no changes to your website's code.</p>
+          </details>
+          <details>
+            <summary>Can the model connect to our CRM?</summary>
+            <p>Yes. If your sales system or CRM provides a list of units (via an API or an XML/CSV export), the model pulls statuses and prices from it automatically. Integrations are quoted individually.</p>
+          </details>
+          <details>
+            <summary>Does the model replace the sales team?</summary>
+            <p>No. It supports sales by letting buyers narrow down their choice before getting in touch, so sales conversations are shorter and more focused.</p>
+          </details>
+          <details>
+            <summary>Can I embed the model on several pages?</summary>
+            <p>Yes. The same widget can be placed on the development's home page, individual building pages and in marketing materials at no extra implementation cost.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-tytul">
+      <div class="wrap">
+        <div class="contact">
+          <div class="contact-intro">
+            <h2 id="kontakt-tytul">We will put the model on your website</h2>
+            <p class="lead">Tell us about your development and we will send a quote and a timeline. Or book a 15-minute online demo straight away.</p>
+            <ul class="contact-facts">
+              <li>Reply within 24 hours</li>
+              <li>Free quote, no obligation</li>
+              <li>Prefer email? <a class="contact-link" href="mailto:biuro@designova.pl?subject=Makieta-Wirtualna%20enquiry">biuro@designova.pl</a></li>
+            </ul>
+          </div>
+          <form class="form" id="formularz" action="/wyslij.php" method="post" novalidate>
+            <input type="hidden" name="jezyk" value="en">
+            <fieldset class="form-type full">
+              <legend class="visually-hidden">What do you need?</legend>
+              <label><input type="radio" name="typ" value="wycena" checked> Quote</label>
+              <label><input type="radio" name="typ" value="prezentacja"> Online demo (15 min)</label>
+            </fieldset>
+            <label class="field">Full name *
+              <input type="text" name="imie" autocomplete="name" required maxlength="120">
+            </label>
+            <label class="field">Email *
+              <input type="email" name="email" autocomplete="email" required maxlength="160">
+            </label>
+            <label class="field">Phone
+              <input type="tel" name="telefon" autocomplete="tel" maxlength="40">
+            </label>
+            <label class="field">Company / development
+              <input type="text" name="firma" autocomplete="organization" maxlength="160">
+            </label>
+            <div class="form-demo full" data-when="prezentacja" hidden>
+              <label class="field">Preferred day *
+                <input type="date" name="termin_dzien" data-weekday>
+              </label>
+              <label class="field">Time (CET) *
+                <select name="termin_godzina">
+                  <option value="">Choose</option>
+                  <option>9:00</option><option>10:00</option><option>11:00</option><option>12:00</option>
+                  <option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option>
+                </select>
+              </label>
+              <p class="form-hint">Mon–Fri. We will confirm the time and send you a meeting link.</p>
+            </div>
+            <label class="field">Package
+              <select name="pakiet">
+                <option value="">Not sure yet</option>
+                <option value="Start">Start</option>
+                <option value="Inwestycja">Development</option>
+                <option value="Osiedle">Estate</option>
+              </select>
+            </label>
+            <label class="field">Planned start
+              <select name="start">
+                <option value="">Choose</option>
+                <option value="Jak najszybciej">As soon as possible</option>
+                <option value="W ciągu miesiąca">Within a month</option>
+                <option value="Za 1–3 miesiące">In 1–3 months</option>
+                <option value="Później">Later</option>
+              </select>
+            </label>
+            <label class="field">Number of buildings
+              <input type="number" name="budynki" min="1" max="200" inputmode="numeric">
+            </label>
+            <label class="field">Number of units
+              <input type="number" name="lokale" min="1" max="10000" inputmode="numeric">
+            </label>
+            <label class="field full">Link to the development
+              <input type="url" name="link" placeholder="https://" maxlength="300">
+            </label>
+            <label class="field full">Message
+              <textarea name="wiadomosc" rows="3" maxlength="3000"></textarea>
+            </label>
+            <label class="hp" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <label class="consent full">
+              <input type="checkbox" name="zgoda" value="tak" required>
+              <span>I agree to be contacted about my enquiry. Data processing is described in the <a href="../polityka-prywatnosci.html" hreflang="pl">Privacy Policy (in Polish)</a>. *</span>
+            </label>
+            <div class="form-submit full">
+              <button class="btn btn-paper" type="submit" data-label-wycena="Send enquiry" data-label-prezentacja="Book the demo">Send enquiry</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <p><strong style="color: var(--ink); font-weight: 600;">Designova Paweł Janowiak</strong></p>
+          <p>Tax ID (NIP) 7772950478<br>ul. Czereśniowa 15/2, 62-051 Wiry, Poland</p>
+        </div>
+        <p class="footer-about">Makieta-Wirtualna provides property developers and sales offices with ready-made interactive apartment models with a unit finder, 3D visualisations of developments and apartment configurators embedded directly on the client's website.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Makieta‑Wirtualna</span>
+        <div class="footer-links">
+          <a href="../polityka-prywatnosci.html" hreflang="pl">Privacy Policy (PL)</a>
+          <a href="../regulamin.html" hreflang="pl">Terms (PL)</a>
+          <a href="/" hreflang="pl" lang="pl">Polski</a>
+          <a href="/de/" hreflang="de" lang="de">Deutsch</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookie" role="region" aria-label="Cookie consent" hidden>
+    <p>This site uses cookies necessary for it to work and — with your consent — analytics cookies. More in the <a href="../polityka-prywatnosci.html" hreflang="pl">Privacy Policy (in Polish)</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-line btn-sm" type="button" data-consent="rejected">Necessary only</button>
+      <button class="btn btn-ink btn-sm" type="button" data-consent="accepted">Accept</button>
+    </div>
+  </div>
+</body>
+</html>
