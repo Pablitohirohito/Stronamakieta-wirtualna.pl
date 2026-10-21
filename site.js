@@ -162,7 +162,6 @@
   addLayer(document.querySelector('.compare-col.is-after'), 70);
   all('.steps li').forEach(function (el, i) { addLayer(el, 50 + i * 70); });
   addLayer(document.querySelector('.steps-top .photo'), 90);
-  all('.plan').forEach(function (el, i) { addLayer(el, 40 + i * 50); });
   addLayer(document.querySelector('.faq .split-head'), 120);
   addLayer(document.querySelector('.contact'), 140);
 
