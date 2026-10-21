@@ -20,7 +20,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .brand-mark rect { animation: none !important; }
+  .brand-mark * { animation: none !important; }
 }
 
 body {
@@ -79,30 +79,33 @@ p { margin: 0; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
 .brand svg { flex: none; overflow: visible; }
 
-/* Logo: budynek z siatką lokali, zielony = dostępny; obrysy rysują się w pętli i łagodnie wygasają */
-.brand-mark .b-line { fill: none; stroke: var(--ink); stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
-.brand-mark .b-frame { stroke-width: 1.2; }
-.brand-mark .b-grid { stroke-width: .9; }
-.brand-mark .b-unit { fill: var(--available); transform-box: fill-box; transform-origin: center; }
-.brand-mark .b-line { animation: mark-draw 6s cubic-bezier(.6, 0, .2, 1) infinite both; }
-.brand-mark .g1 { animation-delay: .25s; }
-.brand-mark .g2 { animation-delay: .4s; }
-.brand-mark .g3 { animation-delay: .55s; }
-.brand-mark .b-unit { animation: mark-unit 6s ease-out .55s infinite both; }
+/* Logo: izometryczny budynek kaskadowy, zielony = dostępny lokal; uskoki opadają po kolei w pętli */
+.brand-mark path { stroke: var(--ink); stroke-width: .7; stroke-linejoin: round; }
+.brand-mark .b-top { fill: var(--paper); }
+.brand-mark .b-left { fill: var(--line); }
+.brand-mark .b-right { fill: #b9c1bd; }
+.brand-mark .b-unit { fill: var(--available); stroke: none; transform-box: fill-box; transform-origin: center; }
+.brand-mark .b-tier { animation: mark-tier 6s cubic-bezier(.3, 0, .2, 1) infinite both; }
+.brand-mark .t2 { animation-delay: .1s; }
+.brand-mark .t3 { animation-delay: .2s; }
+.brand-mark .t4 { animation-delay: .3s; }
+.brand-mark .t5 { animation-delay: .4s; }
+.brand-mark .t6 { animation-delay: .5s; }
+.brand-mark .b-unit { animation: mark-unit 6s ease-out .5s infinite both; }
 @media (prefers-reduced-motion: reduce) {
-  .brand-mark .b-line, .brand-mark .b-unit { animation: none; }
+  .brand-mark .b-tier, .brand-mark .b-unit { animation: none; }
 }
 
-@keyframes mark-draw {
-  0% { stroke-dashoffset: 1; opacity: 1; }
-  18% { stroke-dashoffset: 0; }
-  78% { opacity: 1; }
-  94%, 100% { stroke-dashoffset: 0; opacity: 0; }
+@keyframes mark-tier {
+  0% { opacity: 0; transform: translateY(-4px); }
+  14% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  94%, 100% { opacity: 0; transform: translateY(0); }
 }
 @keyframes mark-unit {
-  0%, 12% { opacity: 0; transform: scale(.6); }
-  22% { opacity: 1; transform: scale(1); }
-  78% { opacity: 1; transform: scale(1); }
+  0%, 14% { opacity: 0; transform: scale(.4); }
+  24% { opacity: 1; transform: scale(1); }
+  80% { opacity: 1; transform: scale(1); }
   94%, 100% { opacity: 0; transform: scale(1); }
 }
 .nav { display: flex; gap: 28px; margin-left: auto; }
