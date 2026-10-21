@@ -3,7 +3,8 @@
 // Odpowiada JSON-em (fetch z site.js) albo przekierowaniem (bez JavaScriptu).
 
 const TO = 'biuro@designova.pl';
-const FROM = 'formularz@makieta-wirtualna.pl';
+// home.pl wysyła z PHP tylko jako istniejąca skrzynka na koncie; SPF designova.pl obejmuje IP serwera.
+const FROM = 'biuro@designova.pl';
 
 $wantsJson = strpos($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json') !== false;
 $lang = in_array($_POST['jezyk'] ?? '', ['en', 'de'], true) ? $_POST['jezyk'] : 'pl';
@@ -80,7 +81,7 @@ if ($msg !== '') $body .= "\nWiadomość:\n$msg\n";
 
 $subject = ($typ === 'prezentacja' ? 'Prezentacja online' : 'Zapytanie o wycenę') . ' — ' . $imie;
 $headers = implode("\r\n", [
-    'From: Makieta-Wirtualna <' . FROM . '>',
+    'From: Formularz Makieta-Wirtualna <' . FROM . '>',
     'Reply-To: ' . $email,
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
